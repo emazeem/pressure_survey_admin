@@ -1,0 +1,356 @@
+
+:root {
+    --image-height : 250px;
+    --height-1 : 15px;
+    --height-2 : 10px;
+    --width-1 : 100%;
+    --width-2 : 50%;
+    --border-radius : 50px;
+    --background : #e3e4e6;
+    --shadow : 0 1px 2px rgb(0 0 0 / 20%);
+}
+
+
+/* Universal */
+
+.skeletel-card .line {
+    width: 100%;
+    height: 10px;
+    background: #e3e4e6;
+    overflow: hidden;
+    margin-top: 2px;
+    border-radius: 50px;
+}
+
+.skeletel-card .height-001 {
+    height: 30px;
+}
+
+.skeletel-card .width-001 {
+    width: 30px;
+}
+
+.skeletel-card .height-00 {
+    height: 20px;
+}
+
+.skeletel-card .height-01 {
+    height: 15px;
+}
+
+.skeletel-card .height-02 {
+    height: 10px;
+}
+
+.skeletel-card .width-00 {
+    width: 20px;
+}
+
+.skeletel-card .height-100 {
+    height: 100px;
+}
+
+.skeletel-card .width-100 {
+    width: 100px;
+}
+
+.skeletel-card .mr-t-15 {
+    margin-top: 15px !important;
+}
+
+.skeletel-card .width-50-auto {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+.skeletel-card .border-b {
+    border-bottom: 1px solid #dedede;
+}
+
+.skeletel-card .border-t {
+    border-top: 1px solid #dedede;
+}
+
+.skeletel-card .skeletel-image {
+    border-radius:50% ;
+    background: var(--background);
+    overflow: hidden;
+    display: block;
+    margin: auto;
+}
+
+.skeletel-card-image {
+    background: var(--background);
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.skeletel-card-div.full {
+    flex-grow: 1;
+}
+
+/* Wish List */
+
+
+.product-skeletel-loading {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.product-skeletel-loading-image {
+    height: var(--image-height);
+    background: var(--background);
+    overflow: hidden;
+}
+
+.product-skeletel-loading-title {
+    margin: 15px;
+    height: var(--height-1);
+    background: var(--background);
+    border-radius: var(--border-radius);
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.product-skeletel-loading-category {
+    margin: 0px 15px 15px 15px;
+    height: var(--height-2);
+    background: var(--background);
+    border-radius: var(--border-radius);
+    width: var(--width-2);
+    overflow: hidden;
+}
+
+.product-skeletel-loading-detail {
+    margin: 15px;
+}
+
+.product-skeletel-loading-detail .line {
+    width: 100%;
+    height: 10px;
+    background: #e3e4e6;
+    overflow: hidden;
+    margin-top: 2px;
+    border-radius: 50px;
+}
+
+.product-skeletel-loading-detail .line.half {
+    width: 50%;
+}
+
+.product-skeletel-loading-bottom {
+    padding: 15px;
+    border-top: 1px solid #dedede;
+}
+
+.product-skeletel-loading-bottom.multi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-skeletel-loading-detail-bottom-opt {
+    width: 20%;
+    height: 20px;
+    background: #e3e4e6;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.product-skeletel-loading-detail-bottom-opt {
+    width: 20%;
+    height: 20px;
+    background: #e3e4e6;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+/* Post */
+
+.post-skeletel-loading-top-bar {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #dedede;
+}
+
+.post-skeletel-loading-top-bar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e3e4e6;
+    margin-right: 20px;
+}
+
+.post-skeletel-loading-top-bar-info {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-skeletel-loading-top-bar-info .profile-line {
+    width: 150px;
+    height: 10px;
+    background: #e3e4e6;
+    border-radius: 50px;
+}
+
+.post-skeletel-loading-top-bar-info .time-line {
+    width: 85px;
+    background: #e3e4e6;
+    height: 7px;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+
+.post-skeletel-loading-content {
+    padding: 15px;
+    border-bottom: 1px solid #dedede;
+}
+
+.post-skeletel-loading-content .line {
+    width: 100%;
+    height: 10px;
+    background-color: #e3e4e6;
+    margin-top: 4px;
+    border-radius: 3px;
+}
+
+.post-skeletel-loading-content .line.half {
+    width: 50%;
+}
+
+.post-skeletel-loading-bottom {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.post-skeletel-loading-bottom {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #dedede;
+}
+
+.post-skeletel-loading-add-comment {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.post-skeletel-loading-add-comment-profile {
+    width: 40px;
+    height: 40px;
+    background: #e3e4e6;
+    border-radius: 50px;
+    margin-right: 15px;
+}
+
+.post-skeletel-loading-add-comment-input {
+    flex-grow: 1;
+    height: 40px;
+    background: #e3e4e6;
+    border-radius: 50px;
+    margin-right: 15px;
+}
+
+.post-skeletel-loading-add-comment-button {
+    width: 50px;
+    height: 40px;
+    background: #e3e4e6;
+    border-radius: 50px;
+}
+
+.post-skeletel-loading-bottom-opt {
+    width: 50px;
+    height: 30px;
+    background: #e3e4e6;
+    border-radius: 50px;
+    margin-right: 15px;
+}
+
+/* Coin Package */
+
+
+.coin-packs-skeletel-content {
+    padding: 15px;
+}
+
+/* Cart */
+
+.skeletel-card-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Notifications */
+
+.notification-skeletel-card-inner {
+    padding: 15px;
+    display: flex;
+}
+
+.notification-skeletel-content {
+    flex-grow: 1;
+}
+
+/* Profile Galary */
+
+.photo-skeletel-image {
+    background: #e3e4e6;
+    border-radius: 2px;
+}
+
+/* Search Box */
+
+.serch-box-sekeletel-card-inner {
+    display: flex;
+    align-items: center;
+}
+
+.search-box-skeletel-content {
+    flex-grow: 1;
+    padding-left: 15px;
+}
+
+/* Gallary */
+
+.gallary-skeletel-card-image {
+    width: 200px;
+    height: 200px;
+    background: #e3e4e6;
+    border-radius: 4px;
+}
+
+/* Animation */
+
+.s-animate {
+    position: relative;
+    overflow: hidden;
+}
+
+.s-animate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    box-shadow: -8px 0px 40px 20px #fff;
+    animation: SkeletelLoading 1.5s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes SkeletelLoading {
+    0% {left: -5%;}
+    100% {left: 110%;}
+}
+

@@ -1,0 +1,440 @@
+/* All */
+
+* {
+    transition: all .3s ease-in;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+* {
+    transition: all .3s ease-in;
+}
+
+i {
+    font-style: normal;
+}
+
+/* Components */
+
+/* Elements */
+
+.section-padding {padding: 30px 0;}
+
+.bg-custom {background-color: #F0F2F5  !important;}
+
+.custom-card {background-color: #ffffff;margin-bottom: 20px !important;}
+
+.custom-border {border-radius: 8px;}
+
+.custom-shadow {box-shadow: 0 1px 2px rgb(0 0 0 / 20%);}
+
+.custom-padding {padding: 15px;}
+
+.border-bottom {border: 1px solid #dedede;}
+
+.clasic-shadow {box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);}
+
+.input-radius {border-radius: 3px;}
+
+.margin-bottom {margin-bottom: 15px;}
+
+.black-button {
+    padding: 5px 10px;
+    background: #000;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.black-button:hover {
+    padding: 5px 10px;
+    background: #fff;
+    color: #000;
+}
+
+/* KYC */
+
+.top-logo-bar {
+    background: #fff;
+    padding: 10px;
+}
+
+.top-logo-bar-img img {
+    width: 350px;
+    display: block;
+    margin: auto;
+}
+
+.form-card-div {
+    margin: 50px 0;
+}
+
+.form-card-div-inner {
+    width: 100%;
+    margin: auto;
+}
+
+.form-card-div-main .card-title {
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-card-div-coin-image {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-div-field-input {
+    border: 1px solid #dedede;
+    padding: 5px 10px;
+    width: 100%;
+    outline: none;
+    color: #757575;
+}
+
+input.form-div-field-input {
+    border: 1px solid #dedede;
+    padding: 5px 10px;
+    width: 100%;
+    outline: none;
+    color: #000;
+}
+
+.form-card-div-field {
+    margin-bottom: 20px;
+}
+
+.date-text {
+    position: absolute;
+    top: 4px;
+    min-width: 100px;
+    left: 11px;
+    background: #fff;
+    padding: 3px;
+    color: #757575;
+}
+span.date-text.disabled {
+    background: #e9ecef;
+}
+.form-card-div-field.date-field {
+    position: relative;
+}
+
+.form-card-div-coin-image-inner img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.form-card-profile-pic {
+    margin-bottom: 50px;
+}
+
+.form-card-profile-pic-inner img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.form-card-profile-pic-text {
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.form-card-profile-input-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-card-profile-doc-title {
+    font-size: 20px;
+    /* font-weight: 500; */
+    margin-bottom: 10px;
+}
+
+.form-card-profile-doc-sub-title {
+    font-size: 12px;
+}
+
+.doc-uploader .upload-text {
+    opacity: 0;
+}
+
+.upload-file-text {
+    padding: 5px 10px;
+    flex-grow: 1;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.form-card-profile-doc-inner {
+    margin-top: 30px;
+}
+
+/* Customization */
+
+.image-uploader {
+    border: 0 !important;
+}
+
+.image-uploader .uploaded .uploaded-image .delete-image i {
+    font-size: 12px !important;
+}
+
+.image-uploader .uploaded .uploaded-image .delete-image {
+    /* height: 10px; */
+    padding: 10px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    text-transform: capitalize !important;
+}
+
+.image-uploader .uploaded .uploaded-image .delete-image i {
+    font-size: 12px !important;
+    text-transform: capitalize !important;
+}
+
+.doc-uploader-main {
+    margin: 10px;
+}
+
+.doc-uploader {
+    margin: 20px 0;
+}
+
+.doc-uploader-main {
+    border: 1px dashed #dedede;
+}
+
+.doc-uploader-main .uploader-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.doc-uploader-main {
+    border: 1px dashed #dedede;
+    position: relative;
+}
+
+
+.uploader-text-main {
+    text-align: center;
+}
+
+.uploader-text-main .icon {
+    margin-bottom: 10px;
+}
+
+.doc-uploader-main {
+    border: 1px dashed #dedede;
+    position: relative;
+    cursor: pointer;
+}
+
+.passport-field-inner {
+    /* margin-bottom: 10px; */
+}
+
+.submit-button {
+    text-align: right;
+}
+
+.kyc-rejected-div-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+    margin: 0 -15px;
+    padding: 0 15px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.reason-text {
+    font-size: 14px;
+    text-align: left;
+}
+
+.form-card-image-div {
+    height: 100vh;
+    position: relative;
+    width: 40%;
+}
+
+.form-card-spliter-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.form-card-image-div-inner {
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-card-spliter-main {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+.card-title {
+    margin-bottom: .75rem;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.custom-width {
+    width: 60%;
+    margin: auto;
+}
+
+.padding-div {
+    margin: 0;
+    padding: 50px;
+}
+
+.text-area-input {
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.row-flexed {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-div-field-input {
+    border-radius: 2px;
+}
+
+.form-div-field-input:focus {
+    border-color: #000;
+    color: #495057;
+    outline: none;
+    box-shadow: 0px 7px 19px #f0f0f0;
+}
+
+.top-text-kyc {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.bottom-text-kyc {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.rejected-text {
+    width: 100%;
+}
+
+.kyc-rejected-div {
+    border-bottom: 1px solid #dedede;
+    padding: 15px;
+    /* border-radius: 4px; */
+}
+
+.kyc-status-bar {
+    padding: 15px;
+    border-bottom: 1px solid #dedede;
+}
+
+.kyc-status-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kyc-status-bar-inner .text {
+    font-weight: 500;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 1200px) {
+    .form-card-div-inner {
+        width: 100%;
+        margin: auto;
+    }
+
+    .custom-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-card-image-div-inner {
+        width: 30%;
+    }
+
+    .form-card-image-div {
+        width: 30%;
+    }
+
+    .form-card-image-div-main {
+        padding: 40px;
+        text-align: center;
+    }
+
+    .form-card-spliter-main {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .form-card-div-inner {
+        width: 100%;
+        margin: auto;
+    }
+
+    .form-card-image-div {
+        display: none;
+    }
+
+    .form-card-spliter-main {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .form-card-div {
+        
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .form-card-profile-input-inner {
+        flex-direction: column;
+    }
+
+    .upload-file-text {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,116 @@
+
+.iUploader-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    border: 1px dashed #b3b0b0;
+}
+
+.iUploader-uploader-trigger {
+    position: sticky;
+    left: 50%;
+    top: 50%;
+}
+
+.iUploader-uploader-trigger {
+    padding: 15px;
+    border-radius: 4px;
+    width: 200px;
+    transform: translate(-50%,-50%);
+}
+
+.iUploader-assets {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.iUploader-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.iUploader-uploader-trigger-image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.iUploader-uploader-trigger-image img {
+    margin-bottom: 20px;
+}
+
+.iUploader-assets-inner {
+    display: flex;
+    margin: 0 0px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.iUploader-single-asset {
+    margin: 15px;
+    padding: 15px;
+    background: #f2f7ff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    border-radius: 4px;
+    position: relative;
+    width: 15%;
+}
+
+.iUploader-single-asset-image {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.iUploader-single-asset-actions {
+    position: absolute;
+    top: -7px;
+    right: -14px;
+}
+
+.iUploader-button {
+    background: #fff;
+    border: 0;
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.iUploader-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.iUploader-single-asset-name {
+    margin-top: 10px;
+    font-size: 11px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.iUploader {
+    width: 100%;
+    height: 100%;
+}
+
+.iUploader-input {
+    display: none;
+}

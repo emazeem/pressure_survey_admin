@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+    colors="true"
+    verbose="true"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutChangesToGlobalState="true"
+    beStrictAboutTodoAnnotatedTests="true"
+    forceCoversAnnotation="true"
+    convertWarningsToExceptions="false"
+    convertErrorsToExceptions="false"
+    convertNoticesToExceptions="false"
+    convertDeprecationsToExceptions="false"
+>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>./tests/Unit</directory>
+            <exclude>./tests/Unit/Laravel</exclude>
+            <exclude>./tests/Unit/ScoutApmBundle</exclude>
+        </testsuite>
+        <testsuite name="integration">
+            <directory>./tests/Integration</directory>
+        </testsuite>
+        <testsuite name="laravel">
+            <directory>./tests/Unit/Laravel</directory>
+        </testsuite>
+        <testsuite name="symfony">
+            <directory>./tests/Unit/ScoutApmBundle</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <ini name="error_reporting" value="E_ALL &amp; ~E_DEPRECATED" />
+        <ini name="display_errors" value="On" />
+    </php>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>./src/</directory>
+            <exclude>
+                <file>./src/ScoutApmBundle/Twig/TwigMethods-Twig2.php</file>
+                <file>./src/ScoutApmBundle/Twig/TwigMethods-Twig3.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+    <listeners>
+        <listener class="Scoutapm\IntegrationTests\CheckScoutApmKeyListener"></listener>
+    </listeners>
+</phpunit>

@@ -1,0 +1,1 @@
+code . && start cmd && php artisan serve
