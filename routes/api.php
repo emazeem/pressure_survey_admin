@@ -12,3 +12,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::prefix('gallery')->group(function () {
     });
 });
+
+//github token
+// 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
