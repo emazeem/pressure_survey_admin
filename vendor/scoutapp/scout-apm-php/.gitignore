@@ -1,8 +1,0 @@
-vendor/
-phpunit.xml
-composer.phar
-.DS_STORE
-.idea
-.phpcs-cache
-build
-.phpunit.result.cache

@@ -1,5 +1,6 @@
 <?php $data_needed = get_files_array(Route::currentRouteName()) ?>
 <?php extract($data_needed); ?>
+
         <!DOCTYPE html>
 <html lang="en">
 <head>
