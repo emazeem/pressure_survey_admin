@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFileDataTable extends Migration
+class CreateInspectionPointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateFileDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('file_data', function (Blueprint $table) {
+        Schema::create('inspection_points', function (Blueprint $table) {
             $table->id();
             $table->integer('file_id');
-            $table->string('meter');
-            $table->string('address');
-            $table->integer('ip_id')->nullable();
-            $table->string('pressure')->default('0.0');
+            $table->integer('team_id');
+            $table->integer('member_id');
+            $table->string('title');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateFileDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_data');
+        Schema::dropIfExists('inspection_points');
     }
 }
