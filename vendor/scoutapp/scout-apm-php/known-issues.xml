@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+  <file src="src/Agent.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>! is_array($disabledInstruments)</code>
+    </DocblockTypeContradiction>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$configuration-&gt;get(ConfigKey::IGNORED_ENDPOINTS)</code>
+    </MixedArgumentTypeCoercion>
+    <PossiblyNullArgument occurrences="2">
+      <code>$configuration-&gt;get(ConfigKey::IGNORED_ENDPOINTS)</code>
+      <code>$this-&gt;config-&gt;get(ConfigKey::APPLICATION_NAME)</code>
+    </PossiblyNullArgument>
+    <RedundantCastGivenDocblockType occurrences="2">
+      <code>(string) $config-&gt;get(ConfigKey::LOG_LEVEL)</code>
+      <code>(string) $this-&gt;config-&gt;get(ConfigKey::API_VERSION)</code>
+    </RedundantCastGivenDocblockType>
+  </file>
+  <file src="src/Config.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="3">
+      <code>$value</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1"/>
+    <MixedReturnStatement occurrences="1">
+      <code>$value ?? null</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/Config/IgnoredEndpoints.php">
+    <MixedAssignment occurrences="1">
+      <code>$ignore</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Connector/SocketConnector.php">
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;connectionAddress</code>
+    </MixedArgument>
+    <MixedPropertyAssignment occurrences="1">
+      <code>$this</code>
+    </MixedPropertyAssignment>
+    <MixedPropertyFetch occurrences="1">
+      <code>$this-&gt;connectionAddress</code>
+    </MixedPropertyFetch>
+    <UnusedClosureParam occurrences="1">
+      <code>$context</code>
+    </UnusedClosureParam>
+    <UnusedFunctionCall occurrences="1">
+      <code>socket_shutdown</code>
+    </UnusedFunctionCall>
+  </file>
+  <file src="src/CoreAgent/Manifest.php">
+    <MixedArrayAccess occurrences="3">
+      <code>$json['core_agent_binary']</code>
+      <code>$json['core_agent_binary_sha256']</code>
+      <code>$json['core_agent_version']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="4">
+      <code>$json</code>
+      <code>$this-&gt;binName</code>
+      <code>$this-&gt;binVersion</code>
+      <code>$this-&gt;sha256</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Errors/ErrorHandlingDiscoveryFactory.php">
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(bool) $config-&gt;get(Config\ConfigKey::ERRORS_ENABLED)</code>
+    </RedundantCastGivenDocblockType>
+  </file>
+  <file src="src/Errors/ScoutClient/HttpErrorReportingClient.php">
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $this-&gt;config-&gt;get(ConfigKey::ERRORS_HOST)</code>
+    </RedundantCastGivenDocblockType>
+  </file>
+  <file src="src/Errors/ScoutErrorHandling.php">
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(bool) $this-&gt;config-&gt;get(Config\ConfigKey::ERRORS_ENABLED)</code>
+    </RedundantCastGivenDocblockType>
+  </file>
+  <file src="src/Events/Request/Request.php">
+    <MixedAssignment occurrences="2">
+      <code>$commands[]</code>
+      <code>$value</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Events/Span/Span.php">
+    <MixedAssignment occurrences="2">
+      <code>$commands[]</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$commands</code>
+      <code>array&lt;int, array&lt;string, (string|array|bool|null)&gt;&gt;</code>
+    </MixedReturnTypeCoercion>
+  </file>
+  <file src="src/Events/Tag/Tag.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;value</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/Helper/Backtrace.php">
+    <MixedArgument occurrences="1">
+      <code>$composerContent['config']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$composerContent</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Laravel/Providers/ScoutApmServiceProvider.php">
+    <InvalidArgument occurrences="1">
+      <code>$app-&gt;make(self::CACHE_SERVICE_KEY)</code>
+    </InvalidArgument>
+  </file>
+  <file src="src/Logger/FilteredLogLevelDecorator.php">
+    <MixedArrayOffset occurrences="1">
+      <code>self::LOG_LEVEL_ORDER[$level]</code>
+    </MixedArrayOffset>
+  </file>
+  <file src="src/ScoutApmBundle/DependencyInjection/Configuration.php">
+    <MixedAssignment occurrences="2">
+      <code>$children</code>
+      <code>$children</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>NodeDefinition|ArrayNodeDefinition</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="8">
+      <code>arrayNode</code>
+      <code>children</code>
+      <code>defaultNull</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>scalarNode</code>
+    </MixedMethodCall>
+    <MixedReturnStatement occurrences="1">
+      <code>$treeBuilder-&gt;root(self::ROOT_NODE_NAME)</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/ScoutApmBundle/Twig/TwigDecorator.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1"/>
+  </file>
+  <file src="tests/Integration/AgentTest.php">
+    <DeprecatedMethod occurrences="2">
+      <code>getEvents</code>
+      <code>getRequest</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/Integration/CheckScoutApmKeyListener.php">
+    <DeprecatedInterface occurrences="1">
+      <code>CheckScoutApmKeyListener</code>
+    </DeprecatedInterface>
+    <DeprecatedTrait occurrences="1">
+      <code>TestListenerDefaultImplementation</code>
+    </DeprecatedTrait>
+  </file>
+  <file src="tests/Integration/TestHelper.php">
+    <MixedAssignment occurrences="1">
+      <code>$expectedValue</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$commandPayload[$identifierKeyToReturn]</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="tests/Unit/AgentTest.php">
+    <MixedArgument occurrences="5">
+      <code>$commands[(self::EXPECTED_SPAN_LIMIT * 2) + 1]</code>
+      <code>$commands[(self::EXPECTED_SPAN_LIMIT * 2) + 2]</code>
+      <code>$commands[(self::EXPECTED_SPAN_LIMIT * 2) + 3]</code>
+      <code>$commands[(self::EXPECTED_SPAN_LIMIT * 2) + 4]</code>
+      <code>$commands[0]</code>
+    </MixedArgument>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$request-&gt;getEvents()</code>
+      <code>array&lt;int, Command&gt;</code>
+    </MixedReturnTypeCoercion>
+  </file>
+  <file src="tests/Unit/Config/Source/DerivedSourceTest.php">
+    <MixedArgument occurrences="2">
+      <code>$this-&gt;derivedSource-&gt;get(ConfigKey::CORE_AGENT_FULL_NAME)</code>
+      <code>$this-&gt;derivedSource-&gt;get(ConfigKey::CORE_AGENT_TRIPLE)</code>
+    </MixedArgument>
+  </file>
+  <file src="tests/Unit/Events/MetadataTest.php">
+    <MixedArrayAccess occurrences="1"/>
+  </file>
+  <file src="tests/Unit/Events/Request/RequestTest.php">
+    <MixedArrayAccess occurrences="29">
+      <code>$command['TagRequest']['tag']</code>
+      <code>$command['TagRequest']['value']</code>
+      <code>$tagRequest['tag']</code>
+      <code>$tagRequest['tag']</code>
+      <code>$tagRequest['tag']</code>
+      <code>$tagRequest['tag']</code>
+      <code>$tagRequest['tag']</code>
+      <code>$tagRequest['tag']</code>
+      <code>$tagRequest['tag']</code>
+      <code>$tagRequest['value']</code>
+      <code>$tagRequest['value']</code>
+      <code>$tagRequest['value']</code>
+      <code>$tagRequest['value']</code>
+      <code>$tagRequest['value']</code>
+      <code>$tagRequest['value']</code>
+      <code>$tagRequest['value']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+      <code>json_decode(json_encode($request), true)['BatchCommand']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="8">
+      <code>$originalStopTime</code>
+      <code>$tagRequest</code>
+      <code>$tagRequest</code>
+      <code>$tagRequest</code>
+      <code>$tagRequest</code>
+      <code>$tagRequest</code>
+      <code>$tagRequest</code>
+      <code>$tagRequest</code>
+    </MixedAssignment>
+    <UnusedVariable occurrences="1">
+      <code>$block</code>
+    </UnusedVariable>
+  </file>
+  <file src="tests/Unit/Events/Span/SpanReferenceTest.php">
+    <MixedAssignment occurrences="1">
+      <code>$actualReturn</code>
+    </MixedAssignment>
+  </file>
+  <file src="tests/Unit/Extension/PotentiallyAvailableExtensionCapabilitiesTest.php">
+    <MixedArgument occurrences="4">
+      <code>$calls</code>
+      <code>$calls</code>
+      <code>$this-&gt;capabilities-&gt;getCalls()</code>
+      <code>$this-&gt;capabilities-&gt;getCalls()</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$calls</code>
+      <code>$recordedCall</code>
+      <code>$version</code>
+    </MixedAssignment>
+  </file>
+  <file src="tests/Unit/Helper/MemoryUsageTest.php">
+    <UnusedVariable occurrences="1">
+      <code>$block</code>
+    </UnusedVariable>
+  </file>
+  <file src="tests/Unit/Laravel/Facades/ScoutApmTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testFacadeProxiesMethodsToRealAgent</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="tests/Unit/Laravel/Middleware/ActionInstrumentTest.php">
+    <UnusedClosureParam occurrences="3">
+      <code>$originalName</code>
+      <code>$originalName</code>
+      <code>$originalName</code>
+    </UnusedClosureParam>
+  </file>
+  <file src="tests/Unit/Laravel/Middleware/MiddlewareInstrumentTest.php">
+    <UnusedClosureParam occurrences="2">
+      <code>$name</code>
+      <code>$type</code>
+    </UnusedClosureParam>
+  </file>
+  <file src="tests/Unit/Laravel/Providers/ScoutApmServiceProviderTestBase.php">
+    <InvalidArrayOffset occurrences="1">
+      <code>$commands[1]['StartSpan']</code>
+    </InvalidArrayOffset>
+    <MixedArgument occurrences="1">
+      <code>$commands[1]['StartSpan']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
+      <code>$commands[1]['StartSpan']['operation']</code>
+      <code>json_decode(json_encode($metadata), true)['ApplicationEvent']</code>
+    </MixedArrayAccess>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;application</code>
+    </PossiblyInvalidArgument>
+    <UndefinedClass occurrences="10">
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+      <code>$events</code>
+    </UndefinedClass>
+    <UnusedClosureParam occurrences="1">
+      <code>$whichViews</code>
+    </UnusedClosureParam>
+  </file>
+  <file src="tests/Unit/Laravel/Providers/ScoutApmServiceProviderUsingLaravelTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>setMethods</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/Unit/Laravel/Providers/ScoutApmServiceProviderUsingLumenTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>setMethods</code>
+    </DeprecatedMethod>
+    <MixedArrayAssignment occurrences="1">
+      <code>$loadedConfigurations['cache']</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="1">
+      <code>$loadedConfigurations</code>
+    </MixedAssignment>
+  </file>
+  <file src="tests/Unit/Laravel/View/Engine/ScoutViewEngineDecoratorTest.php">
+    <MixedArgument occurrences="1">
+      <code>BladeSourceMapCompiler::class</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$vem</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>map</code>
+    </MixedMethodCall>
+    <UndefinedClass occurrences="1">
+      <code>BladeSourceMapCompiler</code>
+    </UndefinedClass>
+    <UnusedClosureParam occurrences="4">
+      <code>$name</code>
+      <code>$name</code>
+      <code>$type</code>
+      <code>$type</code>
+    </UnusedClosureParam>
+  </file>
+  <file src="tests/Unit/ScoutApmBundle/DependencyInjection/ScoutApmExtensionTest.php">
+    <MixedArgument occurrences="1">
+      <code>$agentConfigurationArgument</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$agentConfigurationArgument</code>
+      <code>$agentConfigurationArgument</code>
+    </MixedAssignment>
+  </file>
+  <file src="tests/Unit/ScoutApmBundle/ScoutApmAgentFactoryTest.php">
+    <MixedArgument occurrences="2">
+      <code>$flattenedMetadata</code>
+      <code>$flattenedMetadata</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$flattenedMetadata['framework']</code>
+      <code>$flattenedMetadata['framework_version']</code>
+      <code>json_decode(json_encode($metadata), true)['ApplicationEvent']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$flattenedMetadata</code>
+    </MixedAssignment>
+  </file>
+  <file src="tests/Unit/ScoutApmBundle/Twig/TwigDecoratorTest.php">
+    <UnusedClosureParam occurrences="8">
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$type</code>
+    </UnusedClosureParam>
+  </file>
+</files>

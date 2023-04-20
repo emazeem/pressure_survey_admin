@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    errorBaseline="known-issues.xml"
+>
+    <projectFiles>
+        <directory name="src" />
+        <directory name="tests" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <file name="stub/TwigMethods-Twig2.php" />
+            <file name="stub/TwigMethods-Twig3.php" />
+            <file name="tests/psalm-stubs.php" />
+            <directory name="src/Cache" />
+        </ignoreFiles>
+    </projectFiles>
+    <stubs>
+        <file name="tests/psalm-stubs.php"/>
+    </stubs>
+    <issueHandlers>
+        <PropertyNotSetInConstructor>
+            <errorLevel type="info">
+                <file name="src/Laravel/Console/Commands/CoreAgent.php" />
+            </errorLevel>
+        </PropertyNotSetInConstructor>
+        <DeprecatedClass>
+            <errorLevel type="info">
+                <!-- Handles usage of composer/package-versions-deprecated -->
+                <referencedClass name="PackageVersions\Versions" />
+                <referencedClass name="Doctrine\DBAL\Logging\SQLLogger" />
+                <referencedClass name="Doctrine\DBAL\Logging\LoggerChain" />
+            </errorLevel>
+        </DeprecatedClass>
+        <DeprecatedInterface>
+            <errorLevel type="info">
+                <referencedClass name="Doctrine\DBAL\Logging\SQLLogger" />
+            </errorLevel>
+        </DeprecatedInterface>
+        <MissingConstructor>
+            <errorLevel type="info">
+                <!-- Mostly caused by PHPUnit -->
+                <directory name="tests"/>
+            </errorLevel>
+        </MissingConstructor>
+        <InvalidThrow>
+            <errorLevel type="info">
+                <!-- Does not extend any \Throwable for some reason -->
+                <referencedClass name="Psr\SimpleCache\InvalidArgumentException" />
+            </errorLevel>
+        </InvalidThrow>
+    </issueHandlers>
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+</psalm>
