@@ -7,11 +7,6 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-
-    protected $commands = [
-        Commands\BirthdayAlertCommand::class,
-        Commands\LicenseAlertCommand::class,
-    ];
     /**
      * Define the application's command schedule.
      *
@@ -20,9 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('birthday:cron')->dailyAt('00:00');
-        $schedule->command('license:cron')->dailyAt('00:00');
-        //$schedule->command('inspire')->hourly();
+        // $schedule->command('inspire')->hourly();
     }
 
     /**
