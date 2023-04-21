@@ -25,6 +25,17 @@ class IndexController extends Controller
         $team=Team::find($request->id);
         return $this->sendSuccess("Data fetched successfully!", $team->members);
     }
+    public function filesOfTeam(Request $request){
+        $validators = Validator($request->all(), [
+            'team_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+        $team=Team::with('files')->find($request->team_id);
+        return $this->sendSuccess("Data fetched successfully!", $team->files);
+    }
+
     public function createInspectionPoint(Request  $request){
         $point=new InspectionPoint();
         $point->file_id=$request->file_id;
