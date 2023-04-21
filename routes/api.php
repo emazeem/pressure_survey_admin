@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('fetch-teams', [IndexController::class, 'getTeams']);
+Route::post('get-user-from-team', [IndexController::class, 'getUserFromTeam']);
+Route::post('create-inspection-point', [IndexController::class, 'createInspectionPoint']);
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::prefix('gallery')->group(function () {
+    });
 });
+
+//github token
+// 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
