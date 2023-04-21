@@ -1,6 +1,9 @@
 @extends("layouts.master")
 @section("content")
     <!--start page wrapper -->
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+    <script src="{{url('js/index.js')}}"></script>
+
     <div class="page-wrapper">
         <div class="page-content">
             <!--breadcrumb-->
@@ -68,9 +71,7 @@
         </div>
     </div>
     <!--end page wrapper -->
-@endsection
 
-@section("script")
     <script>
         var selectedValuesTest = {{Js::from($selectedValues)}};
         $(document).ready(function() {
@@ -112,5 +113,4 @@
             </div>
         </div>
     </div>
-
 @endsection

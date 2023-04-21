@@ -56,8 +56,8 @@ class FileController extends Controller
             })
             ->addColumn('action', function($v){
                 $actions ='
-                <a href="'.url('file/show/'.$v->id).'" class="btn p-0"><i class="bx bx-show"></i></a>
-                <a class="btn p-0 delete text-danger" data-id="'.$v->id.'" ><i class="bx bx-trash"></i></a>
+                <a href="'.url('file/show/'.$v->id).'" class="btn p-0"><i class="fa fa-eye"></i></a>
+                <a class="btn p-0 delete text-danger" data-id="'.$v->id.'" ><i class="fa fa-trash"></i></a>
                 ';
                 return $actions;
             })

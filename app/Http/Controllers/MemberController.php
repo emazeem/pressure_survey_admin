@@ -29,8 +29,8 @@ class MemberController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function($v){
                 $actions =
-                    '<a href="#" class="btn p-0 edit" data-id="'.$v->id.'"><i class="bx bx-edit"></i></a>
-                    <a href="#" class="btn p-0 delete" data-id="'.$v->id.'"><i class="bx bx-trash"></i></a>';
+                    '<a href="#" class="btn p-0 edit" data-id="'.$v->id.'"><i class="fa fa-edit"></i></a>';
+                    //<a href="#" class="btn p-0 delete" data-id="'.$v->id.'"><i class="fa fa-trash"></i></a>';
                 return $actions;
             })
             ->rawColumns(['action'])

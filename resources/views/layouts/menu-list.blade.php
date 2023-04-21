@@ -12,7 +12,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('home') }}" class="nav-link ">
+                    <a href="{{ url('dashboard') }}" class="nav-link ">
                     <span class="pcoded-micon">
                         <i class="fa fa-home"></i></span>
                         <span class="pcoded-mtext">Dashboard</span>

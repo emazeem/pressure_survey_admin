@@ -2,23 +2,14 @@
 
 @section("content")
     <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+    <script src="{{url('js/index.js')}}"></script>
+
     <div class="page-wrapper">
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                 <div class="breadcrumb-title pe-3">Member</div>
-                <div class="ps-3">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-0 p-0">
-                            <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">List</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="ms-auto">
-                    <button class="btn btn-sm btn-primary create" data-bs-toggle="modal" data-bs-target="#modal" ><i class="bx bx-plus-circle"></i> Member</button>
-                </div>
+                <button class="btn btn-sm btn-primary create" data-toggle="modal" data-target="#modal" ><i class="fa fa-plus-circle"></i> Member</button>
             </div>
 
             <hr/>
@@ -56,7 +47,7 @@
                     <input type="hidden" name="id" value="0" id="id">
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="bx bx-plus"></i> Member</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle"></i></button>
                 </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -90,7 +81,6 @@
                         </div>
                     </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 </form>
