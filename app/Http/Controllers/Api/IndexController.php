@@ -43,6 +43,17 @@ class IndexController extends Controller
     }
 
     public function createInspectionPoint(Request  $request){
+        $validators = Validator($request->all(), [
+            'file_id' => 'required',
+            'team_id' => 'required',
+            'member_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+
         $point=new InspectionPoint();
         $point->file_id=$request->file_id;
         $point->team_id=$request->team_id;
