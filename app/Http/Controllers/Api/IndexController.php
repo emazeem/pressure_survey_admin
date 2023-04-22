@@ -64,7 +64,7 @@ class IndexController extends Controller
             return $this->sendError($validators->messages()->first(), null);
         }
         $file=File::with('ip')->find($request->file_id);
-        return $this->sendSuccess("Data created successfully!", $file->ip);
+        return $this->sendSuccess("Data fetched successfully!", $file->ip);
     }
     //
 }
