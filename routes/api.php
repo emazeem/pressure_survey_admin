@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\IndexController;
 
 Route::get('fetch-teams', [IndexController::class, 'getTeams']);
 Route::post('get-user-from-team', [IndexController::class, 'getUserFromTeam']);
+Route::post('ip-list-from-team', [IndexController::class, 'fetchIpList']);
 Route::post('create-inspection-point', [IndexController::class, 'createInspectionPoint']);
 Route::post('files-of-team', [IndexController::class, 'filesOfTeam']);
 

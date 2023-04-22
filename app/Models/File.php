@@ -23,4 +23,8 @@ class File extends Model
     public function fileData(){
         return $this->hasMany(FileData::class);
     }
+    public function ip(){
+        return $this->hasMany(InspectionPoint::class);
+    }
+
 }

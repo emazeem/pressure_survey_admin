@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\CommonTrait;
+use App\Models\File;
 use App\Models\InspectionPoint;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -54,6 +55,16 @@ class IndexController extends Controller
         $point->title='IP-'.str_pad($point->id,5,0,STR_PAD_LEFT).'-('.$team->name.')';
         $point->save();
         return $this->sendSuccess("Data created successfully!", true);
+    }
+    public function fetchIpList(Request  $request){
+        $validators = Validator($request->all(), [
+            'file_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+        $file=File::with('ip')->find($request->file_id);
+        return $this->sendSuccess("Data created successfully!", $file->ip);
     }
     //
 }
