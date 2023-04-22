@@ -33,7 +33,12 @@ class IndexController extends Controller
             return $this->sendError($validators->messages()->first(), null);
         }
         $team=Team::with('files')->find($request->team_id);
-        return $this->sendSuccess("Data fetched successfully!", $team->files);
+        $files=[];
+        foreach ($team->files as $file){
+            $file->name=$file->fileName();
+            $files[]=$file;
+        }
+        return $this->sendSuccess("Data fetched successfully!", $files);
     }
 
     public function createInspectionPoint(Request  $request){
