@@ -35,7 +35,7 @@ class IndexController extends Controller
         $team=Team::with('files')->find($request->team_id);
         $files=[];
         foreach ($team->files as $file){
-            $file->name=$file->fileName();
+            $file->file=$file->fileName();
             $files[]=$file;
         }
         return $this->sendSuccess("Data fetched successfully!", $files);
