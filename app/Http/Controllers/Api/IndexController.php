@@ -26,6 +26,17 @@ class IndexController extends Controller
         $team=Team::find($request->id);
         return $this->sendSuccess("Data fetched successfully!", $team->members);
     }
+    public function getFileData(Request $request){
+        $validators = Validator($request->all(), [
+            'file_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+        $import=File::with('fileData')->find($request->file_id);
+        return $this->sendSuccess("Data fetched successfully!", $import->fileData);
+    }
+
     public function filesOfTeam(Request $request){
         $validators = Validator($request->all(), [
             'team_id' => 'required',
