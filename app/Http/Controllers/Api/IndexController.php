@@ -127,5 +127,25 @@ class IndexController extends Controller
         $ip=InspectionPoint::find($request->ip_id);
         return $this->sendSuccess("Data fetched successfully!", $ip->data);
     }
+    public function updateFileData(Request $request){
+        $validators = Validator($request->all(), [
+            'data' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+        try{
+            $data=explode('@',$request->data);
+            foreach ($data as $datum){
+                $d=FileData::find($datum['id']);
+                $d->pressure=$datum['pressure'];
+                $d->save();
+            }
+        }catch (\Exception $exception){
+            dd($request->all());
+        }
+        return $this->sendSuccess("Data updated successfully!", true);
+    }
+
     //
 }
