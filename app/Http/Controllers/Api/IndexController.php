@@ -109,8 +109,9 @@ class IndexController extends Controller
 
         $ip=[];
         foreach ($file->ip as $i){
-            $inspectionPoint=$i;
-            $inspectionPoint['meter']=count($i->ip);
+            $meters=count($i->data);
+            $inspectionPoint=$i->without($i->data);
+            $inspectionPoint['meter']=$meters;
             $ip[]=$inspectionPoint;
         }
 

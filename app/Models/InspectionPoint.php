@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class InspectionPoint extends Model
 {
     use HasFactory;
-    public function ip(){
+    public function data(){
         return $this->hasMany(FileData::class,'ip_id','id');
     }
 }
