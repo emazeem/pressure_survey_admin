@@ -154,12 +154,9 @@ class IndexController extends Controller
         if ($validators->fails()) {
             return $this->sendError($validators->messages()->first(), null);
         }
-
-
         IpImages::where('type',$request->type)->where('ip_id',$request->ip_id)->delete();
-
         $attachment =$request->type.'-'.time().rand(100000,999999).'.'.$request->image->getClientOriginalExtension();
-        Storage::disk('local')->put('/public/ip/' . $attachment, \Illuminate\Support\Facades\File::get($request->image));
+        $request->image->move(public_path('ip'), $attachment);
         $image=new IpImages();
         $image->type=$request->type;
         $image->ip_id=$request->ip_id;
@@ -177,7 +174,6 @@ class IndexController extends Controller
             return $this->sendError($validators->messages()->first(), null);
         }
         $ip=InspectionPoint::find($request->ip_id);
-
         return $this->sendSuccess("Image fetched successfully!", $ip->images);
     }
 
