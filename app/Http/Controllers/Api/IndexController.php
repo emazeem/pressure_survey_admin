@@ -134,12 +134,11 @@ class IndexController extends Controller
         if ($validators->fails()) {
             return $this->sendError($validators->messages()->first(), null);
         }
-        $data=explode('@',$request->data);
-        dd($data);
+        $data=explode('@@',$request->data);
         foreach ($data as $datum){
-            $sub=explode('@@',$datum);
+            $sub=explode('@',$datum);
             $d=FileData::find($sub[0]);
-            $d->pressure=$sub[1];
+            $d->pressure=($sub[1])?$sub[1]:'0.0';
             $d->save();
         }
         return $this->sendSuccess("Data updated successfully!", true);
