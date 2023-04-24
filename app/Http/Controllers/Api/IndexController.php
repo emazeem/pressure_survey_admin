@@ -61,7 +61,7 @@ class IndexController extends Controller
         if ($validators->fails()) {
             return $this->sendError($validators->messages()->first(), null);
         }
-        foreach ($request->meters as $meter){
+        foreach (explode(',',$request->meters) as $meter){
             $m=FileData::find($meter);
             $m->ip_id=$request->ip_id;
             $m->save();
