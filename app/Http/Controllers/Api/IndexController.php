@@ -134,7 +134,7 @@ class IndexController extends Controller
         if ($validators->fails()) {
             return $this->sendError($validators->messages()->first(), null);
         }
-        $data=explode('@@',$request->data);
+        $data=explode('##',$request->data);
         foreach ($data as $datum){
             $sub=explode('@',$datum);
             dd($request->data,$data,$sub);
