@@ -24,6 +24,7 @@ Route::post('store-meters-against-ip', [IndexController::class, 'storeMetersAgai
 Route::post('get-file-data', [IndexController::class, 'getFileData']);
 Route::post('get-selected-meters', [IndexController::class, 'getSelectedMeters']);
 Route::post('update-file-data', [IndexController::class, 'updateFileData']);
+Route::post('update-images', [IndexController::class, 'updateImages']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::prefix('gallery')->group(function () {

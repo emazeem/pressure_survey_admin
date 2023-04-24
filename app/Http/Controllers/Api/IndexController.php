@@ -7,8 +7,10 @@ use App\Http\Traits\CommonTrait;
 use App\Models\File;
 use App\Models\FileData;
 use App\Models\InspectionPoint;
+use App\Models\IpImages;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class IndexController extends Controller
 {
@@ -143,6 +145,30 @@ class IndexController extends Controller
         }
         return $this->sendSuccess("Data updated successfully!", true);
     }
+    public function updateImages(Request $request){
+        $validators = Validator($request->all(), [
+            'first' => 'required',
+            'last' => 'required',
+            'panel' => 'required',
+            'ip_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+
+        if($request->first){
+            $attachment ='first-'.time().$request->first.'.'.$request->first->getClientOriginalExtension();
+            Storage::disk('local')->put('/public/ip/' . $attachment, \Illuminate\Support\Facades\File::get($request->first));
+            $image=new IpImages();
+            $image->type='image';
+            $image->ip_id=$request->ip_id;
+            $image->image=$attachment;
+            $image->save();
+        }
+        
+        return $this->sendSuccess("Image added successfully!", true);
+    }
+
 
     //
 }

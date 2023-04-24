@@ -11,4 +11,8 @@ class InspectionPoint extends Model
     public function data(){
         return $this->hasMany(FileData::class,'ip_id','id');
     }
+    public function images(){
+        return $this->hasMany(IpImages::class,'ip_id','id');
+    }
+
 }
