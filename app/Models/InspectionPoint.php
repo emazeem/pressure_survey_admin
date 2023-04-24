@@ -9,6 +9,6 @@ class InspectionPoint extends Model
 {
     use HasFactory;
     public function meter(){
-        return $this->hasMany(FileData::class,'id','ip_id');
+        return $this->hasMany(FileData::class,'ip_id','id');
     }
 }
