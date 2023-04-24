@@ -27,6 +27,17 @@ class IndexController extends Controller
         $team=Team::find($request->id);
         return $this->sendSuccess("Data fetched successfully!", $team->members);
     }
+    public function getFileData(Request $request){
+        $validators = Validator($request->all(), [
+            'file_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+        $import=File::with('fileData')->find($request->file_id);
+        return $this->sendSuccess("Data fetched successfully!", $import->fileData);
+    }
+
     public function filesOfTeam(Request $request){
         $validators = Validator($request->all(), [
             'team_id' => 'required',
@@ -35,7 +46,12 @@ class IndexController extends Controller
             return $this->sendError($validators->messages()->first(), null);
         }
         $team=Team::with('files')->find($request->team_id);
-        return $this->sendSuccess("Data fetched successfully!", $team->files);
+        $files=[];
+        foreach ($team->files as $file){
+            $file->file=$file->fileName();
+            $files[]=$file;
+        }
+        return $this->sendSuccess("Data fetched successfully!", $files);
     }
     public function storeMetersAgainstIp(Request $request){
         $validators = Validator($request->all(), [
@@ -54,6 +70,17 @@ class IndexController extends Controller
     }
 
     public function createInspectionPoint(Request  $request){
+        $validators = Validator($request->all(), [
+            'file_id' => 'required',
+            'team_id' => 'required',
+            'member_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+
         $point=new InspectionPoint();
         $point->file_id=$request->file_id;
         $point->team_id=$request->team_id;
@@ -66,6 +93,16 @@ class IndexController extends Controller
         $point->title='IP-'.str_pad($point->id,5,0,STR_PAD_LEFT).'-('.$team->name.')';
         $point->save();
         return $this->sendSuccess("Data created successfully!", true);
+    }
+    public function fetchIpList(Request  $request){
+        $validators = Validator($request->all(), [
+            'file_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+        $file=File::with('ip')->find($request->file_id);
+        return $this->sendSuccess("Data fetched successfully!", $file->ip);
     }
     //
 }
