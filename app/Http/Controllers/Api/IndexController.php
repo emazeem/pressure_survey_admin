@@ -116,5 +116,16 @@ class IndexController extends Controller
 
         return $this->sendSuccess("Data fetched successfully!", $ip);
     }
+    public function getSelectedMeters(Request $request){
+        $validators = Validator($request->all(), [
+            'ip_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+
+        $ip=InspectionPoint::find($request->ip_id);
+        return $this->sendSuccess("Data fetched successfully!", $ip->data);
+    }
     //
 }

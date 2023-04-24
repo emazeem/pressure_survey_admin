@@ -22,6 +22,7 @@ Route::post('create-inspection-point', [IndexController::class, 'createInspectio
 Route::post('files-of-team', [IndexController::class, 'filesOfTeam']);
 Route::post('store-meters-against-ip', [IndexController::class, 'storeMetersAgainstIp']);
 Route::post('get-file-data', [IndexController::class, 'getFileData']);
+Route::post('get-selected-meters', [IndexController::class, 'getSelectedMeters']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::prefix('gallery')->group(function () {
