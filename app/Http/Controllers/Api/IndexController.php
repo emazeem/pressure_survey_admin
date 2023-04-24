@@ -137,7 +137,6 @@ class IndexController extends Controller
         $data=explode('##',$request->data);
         foreach ($data as $datum){
             $sub=explode('@',$datum);
-            dd($request->data,$data,$sub);
             $d=FileData::find($sub[0]);
             $d->pressure=($sub[1])?$sub[1]:'0.0';
             $d->save();
