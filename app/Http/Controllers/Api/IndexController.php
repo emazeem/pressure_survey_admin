@@ -35,7 +35,7 @@ class IndexController extends Controller
             return $this->sendError($validators->messages()->first(), null);
         }
         $import=File::with('fileData')->find($request->file_id);
-        return $this->sendSuccess("Data fetched successfully!", $import->fileData);
+        return $this->sendSuccess("Data fetched successfully!", $import->fileData->whereNull('ip_id'));
     }
 
     public function filesOfTeam(Request $request){
