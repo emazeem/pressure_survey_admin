@@ -147,25 +147,24 @@ class IndexController extends Controller
     }
     public function updateImages(Request $request){
         $validators = Validator($request->all(), [
-            'first' => 'required',
-            'last' => 'required',
-            'panel' => 'required',
+            'image' => 'required',
             'ip_id' => 'required',
+            'type' => 'required',
         ]);
         if ($validators->fails()) {
             return $this->sendError($validators->messages()->first(), null);
         }
 
-        if($request->first){
-            $attachment ='first-'.time().$request->first.'.'.$request->first->getClientOriginalExtension();
-            Storage::disk('local')->put('/public/ip/' . $attachment, \Illuminate\Support\Facades\File::get($request->first));
-            $image=new IpImages();
-            $image->type='image';
-            $image->ip_id=$request->ip_id;
-            $image->image=$attachment;
-            $image->save();
-        }
-        
+        $attachment =$request->type.'-'.time().rand(100000,999999).'.'.$request->image->getClientOriginalExtension();
+        Storage::disk('local')->put('/public/ip/' . $attachment, \Illuminate\Support\Facades\File::get($request->image));
+        $image=new IpImages();
+        $image->type=$request->type;
+        $image->ip_id=$request->ip_id;
+        $image->image=$attachment;
+        $image->save();
+
+
+
         return $this->sendSuccess("Image added successfully!", true);
     }
 
