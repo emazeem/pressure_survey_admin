@@ -106,7 +106,15 @@ class IndexController extends Controller
             return $this->sendError($validators->messages()->first(), null);
         }
         $file=File::with('ip')->find($request->file_id);
-        return $this->sendSuccess("Data fetched successfully!", $file->ip);
+
+        $ip=[];
+        foreach ($file->ip as $i){
+            $inspectionPoint=$i;
+            $inspectionPoint['meter']=$i->fileData;
+            $ip[]=$inspectionPoint;
+        }
+
+        return $this->sendSuccess("Data fetched successfully!", $ip);
     }
     //
 }
