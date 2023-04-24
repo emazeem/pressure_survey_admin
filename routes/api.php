@@ -19,6 +19,7 @@ Route::get('fetch-teams', [IndexController::class, 'getTeams']);
 Route::post('get-user-from-team', [IndexController::class, 'getUserFromTeam']);
 Route::post('create-inspection-point', [IndexController::class, 'createInspectionPoint']);
 Route::post('files-of-team', [IndexController::class, 'filesOfTeam']);
+Route::post('store-meters-against-ip', [IndexController::class, 'storeMetersAgainstIp']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::prefix('gallery')->group(function () {

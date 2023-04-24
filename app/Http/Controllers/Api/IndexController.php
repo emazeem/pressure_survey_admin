@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\CommonTrait;
+use App\Models\File;
+use App\Models\FileData;
 use App\Models\InspectionPoint;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -34,6 +36,21 @@ class IndexController extends Controller
         }
         $team=Team::with('files')->find($request->team_id);
         return $this->sendSuccess("Data fetched successfully!", $team->files);
+    }
+    public function storeMetersAgainstIp(Request $request){
+        $validators = Validator($request->all(), [
+            'ip_id' => 'required',
+            'meters' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+        foreach ($request->meters as $meter){
+            $m=FileData::find($meter);
+            $m->ip_id=$request->ip_id;
+            $m->save();
+        }
+        return $this->sendSuccess("Data stored successfully!", true);
     }
 
     public function createInspectionPoint(Request  $request){
