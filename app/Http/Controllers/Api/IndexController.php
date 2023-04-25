@@ -176,5 +176,25 @@ class IndexController extends Controller
         $ip=InspectionPoint::find($request->ip_id);
         return $this->sendSuccess("Image fetched successfully!", $ip->images);
     }
+    public function fetchMeterListOfList(Request $request){
+        $validators = Validator($request->all(), [
+            'ip_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+
+        $ip=InspectionPoint::find($request->ip_id);
+        $pressure=0;
+        foreach ($ip->data as $datum){
+            $pressure+=$datum->pressure;
+        }
+        $data=[
+          'meters'=>$ip->data,
+          'pressure'=>$pressure,
+        ];
+        return $this->sendSuccess("Data fetched successfully!", $data);
+    }
+
     //
 }

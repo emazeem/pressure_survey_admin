@@ -14,6 +14,7 @@ Route::post('get-selected-meters', [IndexController::class, 'getSelectedMeters']
 Route::post('update-file-data', [IndexController::class, 'updateFileData']);
 Route::post('update-images', [IndexController::class, 'updateImages']);
 Route::post('fetch-images', [IndexController::class, 'fetchImages']);
+Route::post('fetch-meter-list-of-ip', [IndexController::class, 'fetchMeterListOfList']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::prefix('gallery')->group(function () {
