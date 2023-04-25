@@ -176,8 +176,5 @@ class IndexController extends Controller
         $ip=InspectionPoint::find($request->ip_id);
         return $this->sendSuccess("Image fetched successfully!", $ip->images);
     }
-
-
-
     //
 }

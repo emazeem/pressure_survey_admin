@@ -31,6 +31,7 @@ Route::middleware(['auth', 'can:super-admin-views'])->group(function () {
         Route::post('edit', [FileController::class, 'edit'])->name('import.edit');
         Route::post('destroy', [FileController::class, 'destroy'])->name('import.destroy');
         Route::post('assign/teams', [FileController::class, 'assign_team'])->name('import.assign.team');
+        Route::get('report/{id}', [FileController::class, 'report'])->name('ip.report');
     });
 
 });

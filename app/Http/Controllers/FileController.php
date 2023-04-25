@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use App\Models\FileData;
+use App\Models\InspectionPoint;
 use App\Models\Member;
 use App\Models\Team;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File as F;
 use Illuminate\Support\Facades\Storage;
@@ -85,5 +87,19 @@ class FileController extends Controller
         getFileContents('imports/'.$role->file,$role->id);
 
         return response()->json(['success'=>$message]);
+    }
+    public function report($id){
+        $ip=InspectionPoint::find($id);
+        $pressure=0;
+        foreach ($ip->data as $datum){
+            $pressure+=$datum->pressure;
+        }
+
+        $pdf = new Dompdf();
+        $pdf->loadHtml(view('admin.report',compact('ip','pressure')));
+        $pdf->render();
+        return $pdf->stream('invoice.pdf');
+
+        return view('admin.report',compact('ip','pressure'));
     }
 }

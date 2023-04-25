@@ -55,6 +55,27 @@
                                     </form>
                                 </td>
                             </tr>
+                            @if(count($import->ip)>0)
+                                <tr>
+                                    <th class="text-center" colspan="2">Inspection Points</th>
+                                </tr>
+                            @endif
+                            @foreach($import->ip as $ip)
+                                <tr>
+                                    <td>
+                                        {{$ip->title}}<br>
+                                        {{$ip->name}}<br>
+                                        {{$ip->description}}
+                                    </td>
+                                    <td>
+                                        <a href="{{url('file/report/'.$ip->id)}}" class="text-right text-primary">Report</a><br>
+                                        @foreach($ip->data as $k=>$data)
+                                            <small>{{$k+1}} - {{$data->meter}}</small><br>
+                                        @endforeach
+                                    </td>
+                                </tr>
+                            @endforeach
+
                         </table>
                         <table class="table table-bordered table-sm table-hover">
                             @foreach($import->fileData as $data)
