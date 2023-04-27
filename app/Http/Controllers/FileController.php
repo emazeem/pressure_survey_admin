@@ -98,8 +98,24 @@ class FileController extends Controller
         $pdf = new Dompdf();
         $pdf->loadHtml(view('admin.report',compact('ip','pressure')));
         $pdf->render();
-        return $pdf->stream('invoice.pdf');
+        $pdfContents = $pdf->output();
+        $publicPath = public_path('reports');
+        if (!is_dir($publicPath)) {
+            mkdir($publicPath, 0777, true);
+        }
+        $filename = $ip->title.'.pdf';
+        $file = $publicPath . '/' . $filename;
 
-        return view('admin.report',compact('ip','pressure'));
+        if (file_exists($file)) {
+            file_put_contents($publicPath.'/exists.pdf', $pdfContents);
+        } else {
+            file_put_contents($publicPath.'/not-exists.pdf', $pdfContents);
+        }
+
+        file_put_contents($file, $pdfContents);
+
+        return $pdf->stream($ip->title.'.pdf');
+
+        //return view('admin.report',compact('ip','pressure'));
     }
 }

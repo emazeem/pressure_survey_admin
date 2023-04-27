@@ -9,6 +9,7 @@ use App\Models\FileData;
 use App\Models\InspectionPoint;
 use App\Models\IpImages;
 use App\Models\Team;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -194,6 +195,40 @@ class IndexController extends Controller
           'pressure'=>$pressure,
         ];
         return $this->sendSuccess("Data fetched successfully!", $data);
+    }
+    public function getReportUrl(Request $request){
+        $validators = Validator($request->all(), [
+            'ip_id' => 'required',
+        ]);
+        if ($validators->fails()) {
+            return $this->sendError($validators->messages()->first(), null);
+        }
+
+        $ip=InspectionPoint::find($request->ip_id);
+        $filename = $ip->title.'.pdf';
+        $publicPath = public_path('reports');
+        if (!is_dir($publicPath)) {
+            mkdir($publicPath, 0777, true);
+        }
+        $file = $publicPath . '/' . $filename;
+
+
+
+
+        if (!file_exists($file)) {
+            $pressure=0;
+            foreach ($ip->data as $datum){
+                $pressure+=$datum->pressure;
+            }
+
+            $pdf = new Dompdf();
+            $pdf->loadHtml(view('admin.report',compact('ip','pressure')));
+            $pdf->render();
+            $pdfContents = $pdf->output();
+            file_put_contents($file, $pdfContents);
+
+        }
+        return $this->sendSuccess("Data fetched successfully!",$file);
     }
 
     //
