@@ -127,9 +127,12 @@ class IndexController extends Controller
         if ($validators->fails()) {
             return $this->sendError($validators->messages()->first(), null);
         }
-
         $ip=InspectionPoint::find($request->ip_id);
-        return $this->sendSuccess("Data fetched successfully!", $ip->data);
+        $data=[];
+        foreach ($ip->data as $datum){
+            $datum->meter=$datum->getMeterNo();
+        }
+        return $this->sendSuccess("Data fetched successfully!", $data);
     }
     public function updateFileData(Request $request){
         $validators = Validator($request->all(), [
