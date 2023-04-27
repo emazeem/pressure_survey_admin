@@ -131,6 +131,7 @@ class IndexController extends Controller
         $data=[];
         foreach ($ip->data as $datum){
             $datum->meter=$datum->getMeterNo();
+            $data[]=$datum;
         }
         return $this->sendSuccess("Data fetched successfully!", $data);
     }
