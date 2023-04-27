@@ -95,7 +95,7 @@ class FileController extends Controller
             $pressure+=$datum->pressure;
         }
 
-        $pdf = new Dompdf();
+        /*$pdf = new Dompdf();
         $pdf->loadHtml(view('admin.report',compact('ip','pressure')));
         $pdf->render();
         $pdfContents = $pdf->output();
@@ -114,8 +114,8 @@ class FileController extends Controller
 
         file_put_contents($file, $pdfContents);
 
-        return $pdf->stream($ip->title.'.pdf');
+        return $pdf->stream($ip->title.'.pdf');*/
 
-        //return view('admin.report',compact('ip','pressure'));
+        return view('admin.report',compact('ip','pressure'));
     }
 }

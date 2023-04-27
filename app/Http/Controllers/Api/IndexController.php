@@ -40,6 +40,7 @@ class IndexController extends Controller
         $import=File::with('fileData')->find($request->file_id);
         $files=[];
         foreach ($import->fileData->whereNull('ip_id') as $fileDatum){
+            $fileDatum->meter=$fileDatum->getMeterNo();
             $files[]=$fileDatum;
         }
         return $this->sendSuccess("Data fetched successfully!", $files);
