@@ -80,7 +80,7 @@
                         <table class="table table-bordered table-sm table-hover">
                             @foreach($import->fileData as $data)
                                 <tr>
-                                    <td>{{$data->meter}}</td>
+                                    <td>{{$data->getMeterNo()}}</td>
                                     <td>{{$data->address}}</td>
                                 </tr>
                             @endforeach

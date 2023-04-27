@@ -62,7 +62,7 @@
 
         <tr>
             <td>{{$k+1}} </td>
-            <td>{{$data->meter}}</td>
+            <td>{{$data->getMeterNo()}}</td>
             <td>{{$data->pressure}}</td>
             @if($k==0)
                 <td rowspan="{{count($ip->data)}}" class="text-center">{{$pressure}}</td>
