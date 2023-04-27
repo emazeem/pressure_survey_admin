@@ -214,8 +214,6 @@ class IndexController extends Controller
         $file = $publicPath . '/' . $filename;
 
 
-
-
         if (!file_exists($file)) {
             $pressure=0;
             foreach ($ip->data as $datum){
@@ -229,7 +227,8 @@ class IndexController extends Controller
             file_put_contents($file, $pdfContents);
 
         }
-        return $this->sendSuccess("Data fetched successfully!",$file);
+
+        return $this->sendSuccess("Data fetched successfully!",url('reports/'.$filename));
     }
 
     //
