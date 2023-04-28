@@ -75,7 +75,9 @@
         </tr>
     @endforeach
 </table>
+@if(count($images)>0)
 <p>Meter Images</p>
+@endif
 <table id="table" style="width:100%">
     @foreach($images as $image)
         <tr>
