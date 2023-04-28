@@ -223,9 +223,20 @@ class IndexController extends Controller
             foreach ($ip->data as $datum){
                 $pressure+=$datum->pressure;
             }
+            $images=[];
+            foreach ($ip->images as $image){
+                $imageFile='ip/'.$image->image;
+                $content=file_get_contents($imageFile);
+                $base64=base64_encode($content);
+                $src='data:'.mime_content_type($imageFile).';base64, '.$base64;
+                $images[]=[
+                    'type'=>$image->type,
+                    'src'=>$src,
+                ];
+            }
 
             $pdf = new Dompdf();
-            $pdf->loadHtml(view('admin.report',compact('ip','pressure')));
+            $pdf->loadHtml(view('admin.report',compact('ip','pressure','images')));
             $pdf->render();
             $pdfContents = $pdf->output();
             file_put_contents($file, $pdfContents);
