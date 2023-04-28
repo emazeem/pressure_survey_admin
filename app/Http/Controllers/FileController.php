@@ -95,6 +95,19 @@ class FileController extends Controller
             $pressure+=$datum->pressure;
         }
 
+
+        $images=[];
+        foreach ($ip->images as $image){
+            $imageFile='ip/'.$image->image;
+            $content=file_get_contents($imageFile);
+            $base64=base64_encode($content);
+            $src='data:'.mime_content_type($imageFile).';base64, '.$base64;
+            $images[]=[
+              'type'=>$image->type,
+              'src'=>$src,
+            ];
+        }
+
         /*$pdf = new Dompdf();
         $pdf->loadHtml(view('admin.report',compact('ip','pressure')));
         $pdf->render();
@@ -116,6 +129,6 @@ class FileController extends Controller
 
         return $pdf->stream($ip->title.'.pdf');*/
 
-        return view('admin.report',compact('ip','pressure'));
+        return view('admin.report',compact('ip','pressure','images'));
     }
 }

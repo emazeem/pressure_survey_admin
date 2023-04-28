@@ -49,6 +49,7 @@
 <p>Inspection Point ID  : {{$ip->title}}</p>
 <p>Inspection Point Name  : {{$ip->name}}</p>
 <p>Inspection Point Description  : {{$ip->description}}</p>
+<p>Survey Date  : {{$ip->created_at->format('d F, Y')}}</p>
 
 <table id="table" style="width:100%">
     <tr>
@@ -73,8 +74,20 @@
 
         </tr>
     @endforeach
-
 </table>
+<p>Meter Images</p>
+<table id="table" style="width:100%">
+    @foreach($images as $image)
+        <tr>
+            <td width="20%">{{ucfirst($image['type'])}}</td>
+            <td width="80%">
+                <img src="{{$image['src']}}" width="300" alt="">
+
+            </td>
+        </tr>
+    @endforeach
+</table>
+
 
 
 </body>
